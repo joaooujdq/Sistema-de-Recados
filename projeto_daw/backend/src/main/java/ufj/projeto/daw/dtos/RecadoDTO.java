@@ -66,7 +66,134 @@ public class RecadoDTO extends RepresentationModel<RecadoDTO> implements Seriali
 	@NotNull
 	@Valid
 	private FuncionarioDTO funcionario;
-	
+
+
+	public Integer getCodigo() {
+		return codigo;
+	}
+
+
+
+
+	public void setCodigo(Integer codigo) {
+		this.codigo = codigo;
+	}
+
+
+
+
+	public String getEmpresaNome() {
+		return empresaNome;
+	}
+
+
+
+
+	public void setEmpresaNome(String empresaNome) {
+		this.empresaNome = empresaNome;
+	}
+
+
+
+
+	public String getStatus() {
+		return status;
+	}
+
+
+
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+
+
+
+	public String getPrioridade() {
+		return prioridade;
+	}
+
+
+
+
+	public void setPrioridade(String prioridade) {
+		this.prioridade = prioridade;
+	}
+
+
+
+
+	public String getSetor() {
+		return setor;
+	}
+
+
+
+
+	public void setSetor(String setor) {
+		this.setor = setor;
+	}
+
+
+
+
+	public String getMensagem() {
+		return mensagem;
+	}
+
+
+
+
+	public void setMensagem(String mensagem) {
+		this.mensagem = mensagem;
+	}
+
+
+
+
+	public String getTipo() {
+		return tipo;
+	}
+
+
+
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
+
+
+
+	public FuncionarioDTO getFuncionario() {
+		return funcionario;
+	}
+
+
+
+
+	public void setFuncionario(FuncionarioDTO funcionario) {
+		this.funcionario = funcionario;
+	}
+
+
+
+
+	public EmpresaDTO getEmpresa() {
+		return empresa;
+	}
+
+
+
+
+	public void setEmpresa(EmpresaDTO empresa) {
+		this.empresa = empresa;
+	}
+
+
+
+
 	@ConvertGroup(from = Default.class, to = ValidationsGroups.EmpresaId.class)
 	@NotNull
 	@Valid

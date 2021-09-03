@@ -21,6 +21,19 @@ public class StandardErro {
 	private LocalDateTime momento;
 	private String decricao;
 	private List<Fields> campos;
+	
+	
+
+
+	public StandardErro(Integer codigo, LocalDateTime momento, String decricao, List<Fields> campos) {
+		super();
+		this.codigo = codigo;
+		this.momento = momento;
+		this.decricao = decricao;
+		this.campos = campos;
+	}
+
+
 
 
 	@AllArgsConstructor
@@ -29,6 +42,14 @@ public class StandardErro {
 	public static class Fields {
 	private String nome;
 	private String mensagem;
+	
+	public Fields(String nome, String mensagem) {
+		super();
+		this.nome = nome;
+		this.mensagem = mensagem;
+	}
+	
+	
 	
 }
 	

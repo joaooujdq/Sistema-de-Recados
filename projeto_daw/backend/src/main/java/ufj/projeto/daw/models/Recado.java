@@ -28,7 +28,7 @@ import lombok.Setter;
 @Table(name = "RECADOS")
 
 public class Recado implements Serializable {
-	private static final long serialVersionUID = 1L;
+	
 	
 	
 	@EqualsAndHashCode.Include
@@ -65,5 +65,101 @@ public class Recado implements Serializable {
 	
 	@ManyToOne
 	private Empresa empresaCriadora;
+
+	public Recado() {
+
+	}
+
+	public Recado(int i, String string, String string2, String string3, String string4, String string5, String string6,
+			Funcionario funcionario, Empresa empresa) {
+		this.codigo = i;
+		this.empresaNome = string;
+		this.status = string2;
+		this.prioridade = string3;
+		this.setor = string4;
+		this.mensagem = string5;
+		this.tipo = string6;
+		this.funcionario = funcionario;
+		this.empresaCriadora = empresa;
+		
+		
+	}
+
+	public Integer getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(Integer codigo) {
+		this.codigo = codigo;
+	}
+
+	public String getEmpresaNome() {
+		return empresaNome;
+	}
+
+	public void setEmpresaNome(String empresaNome) {
+		this.empresaNome = empresaNome;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public String getPrioridade() {
+		return prioridade;
+	}
+
+	public void setPrioridade(String prioridade) {
+		this.prioridade = prioridade;
+	}
+
+	public String getSetor() {
+		return setor;
+	}
+
+	public void setSetor(String setor) {
+		this.setor = setor;
+	}
+
+	public String getMensagem() {
+		return mensagem;
+	}
+
+	public void setMensagem(String mensagem) {
+		this.mensagem = mensagem;
+	}
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
+	public Funcionario getFuncionario() {
+		return funcionario;
+	}
+
+	public void setFuncionario(Funcionario funcionario) {
+		this.funcionario = funcionario;
+	}
+
+	public Empresa getEmpresaCriadora() {
+		return empresaCriadora;
+	}
+
+	public void setEmpresaCriadora(Empresa empresaCriadora) {
+		this.empresaCriadora = empresaCriadora;
+	}
+
+	private static final long serialVersionUID = 1L;
+	
+	
+	
 
 }

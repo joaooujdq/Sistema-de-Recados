@@ -58,6 +58,9 @@ public class Funcionario implements Serializable {
 	@OneToMany(mappedBy = "funcionario")
 	private List<Recado> recados = new ArrayList<>();
 	
+	public Funcionario() {
+
+	}
 
 	public Funcionario(Integer codigo, @NotBlank @Size(max = 60) String nome, @NotBlank @Size(max = 60) String cargo,
 			@NotBlank @Size(max = 20) String login, @NotBlank @Size(max = 20) String senha,
@@ -70,4 +73,75 @@ public class Funcionario implements Serializable {
 		this.tipo = tipo;
 	}
 
+
+	public Integer getCodigo() {
+		return codigo;
+	}
+
+
+	public void setCodigo(Integer codigo) {
+		this.codigo = codigo;
+	}
+
+
+	public String getNome() {
+		return nome;
+	}
+
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+
+	public String getCargo() {
+		return cargo;
+	}
+
+
+	public void setCargo(String cargo) {
+		this.cargo = cargo;
+	}
+
+
+	public String getLogin() {
+		return login;
+	}
+
+
+	public void setLogin(String login) {
+		this.login = login;
+	}
+
+
+	public String getSenha() {
+		return senha;
+	}
+
+
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+
+
+	public String getTipo() {
+		return tipo;
+	}
+
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
+
+	public List<Recado> getRecados() {
+		return recados;
+	}
+
+
+	public void setRecados(List<Recado> recados) {
+		this.recados = recados;
+	}
+
+	
 }
