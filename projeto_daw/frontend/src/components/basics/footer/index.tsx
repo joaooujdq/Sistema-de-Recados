@@ -2,8 +2,10 @@
     return (
         <>
         <footer className="footer mt-auto py-3 bg-dark">
-  <div className="container">
-    <p className="text-light">App desenvolvido por <a href="https://github.com/marcoswagner-commits" target="_blank" rel="noreferrer">Prof. Marcos Wagner</a></p>
+  <div className="container" id="container-footer">
+    <p className="text-light">App desenvolvido por <a href="https://github.com/joaooujdq" target="_blank" rel="noreferrer">João Marcelo T.  de Sousa</a>, </p>
+    <p className="text-light"><a href="https://github.com/fabriicioa" target="_blank" rel="noreferrer">Fabricio Andrade de Sousa</a>,
+    <a href="https://github.com/Marcos-Vinicius-Vilela-Franco" target="_blank" rel="noreferrer"> Marcos Vinicius V. Franco.</a></p>
     <p className="text-light"><small><strong>Desenvolvimento de Aplicações WEB - BCC - UFJ</strong><br/>
       Disciplina de Desenvolvimento de Aplicações WEB: <a href="https://github.com/marcoswagner-commits/gestao_obras_aula_daw" target="_blank" rel="noreferrer"></a></small></p>
   </div>
