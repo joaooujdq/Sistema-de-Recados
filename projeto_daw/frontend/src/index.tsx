@@ -1,25 +1,13 @@
 import * as ReactDom from 'react-dom'
 import './index.css'
-import Header from './components/basics/header/index'
-import Body from './components/basics/Body'    
+import App from './App'
 
-import Footer from 'components/basics/footer/index'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'assets/css/styles.css'
 
 
-
+//login
 ReactDom.render(
-  <>
-
-    
-  <Header/>
-  <Body msg="Voce possui um recado pendente"/>
-
- 
-
-  <Footer/>
-
-  </>,
+<App/>,
   document.getElementById('root')
 )
