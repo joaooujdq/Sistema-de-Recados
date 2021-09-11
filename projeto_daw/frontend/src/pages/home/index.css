@@ -1,4 +1,4 @@
-#container-tickets li{
+#container-tickets ul{
     background-color: rgb(219, 219, 219);
     width: 20vw;
     height: 40vh;
@@ -20,14 +20,14 @@
     margin-bottom: 20px;
 }
 
-#container-tickets li #msgRecado{
+#container-tickets ul #msgRecado{
 
     height: 15.5vh;
   
 }
 
 
-#container-tickets li ul{
+#container-tickets ul li{
     font-size: 1.5vh;
     height: 4vh;
     border: 2px solid rgba(127,127,127,0.16);
