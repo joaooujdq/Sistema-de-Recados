@@ -2,9 +2,7 @@
 import {  useEffect, useState } from "react";
 import api from "../../../services/api";
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
-import './index.css'
-
-
+import '../funcBody/index.css'
 
 interface imensagem {
 
@@ -45,23 +43,17 @@ interface iself {
     href: string
 }
 
-const HomeBody: React.FC = () => {
+const FuncBody: React.FC = () => {
     const [Msg, setMsg] = useState<imensagem[]>([]);
     const [page, setPage]= useState(0);
 
 
     async function loadMsg() {
-        
-            const response = api.get('/v1/elx/recados/',{params:{page:page,limit:3}});
-         
-                setMsg((await response).data._embedded.recadoDTOList);
+        const response = api.get('/v1/elx/recados/',{params:{page:page,limit:3}});
+        setMsg((await response).data._embedded.recadoDTOList);
 
-       
-        
-        
      
     }
-
 
     useEffect(()=>{
         loadMsg()
@@ -72,10 +64,7 @@ const HomeBody: React.FC = () => {
     return (
 
         <>
-          <div id='filter'>
-                <h2>Procurar por funcionário: </h2>
-                <input id ='filterInput' type="text" />
-                </div>
+          
           <body>
               
           
@@ -83,13 +72,11 @@ const HomeBody: React.FC = () => {
                 <thead>
                     {
                         Msg.map(m => (
-                            <ul id='homeBody'>
-                                <li>{m.empresa.nome_emp}</li>
-                                <li>{m.status_rec}</li>
+                            <ul id='funcBody'>
+                                <li>{m.funcionario.codigo_func}</li>
                                 <li>{m.funcionario.nome_func}</li>
-                                <li>{m.setor_rec}</li>
-                                <li>{m.prioridade_rec}</li>
-                                <li id='msgRecado'>{m.mensagem_rec}</li>
+                                <li>{m.funcionario.cargo_func}</li>
+                                <li>{m.funcionario.tipo_func}</li>
                                 <li id='deleteButton'>Excluir</li>
                             </ul>
                         ))
@@ -100,15 +87,16 @@ const HomeBody: React.FC = () => {
               
                </body>
 
-                <div id='carouselBar'>
+               <div id='carouselBar'>
                     <FiArrowLeft id='carouselIcon' onClick = { () => {if( page - 1 >= 0)setPage(page-1)   }  }/>
                     <FiArrowRight id='carouselIcon' onClick = {() => {if(Msg.length == 3)setPage(page+1)   }  }/>
 
                 </div>
+
         </>
             );
 
 }
 
-            export default HomeBody;
+            export default FuncBody;
 
