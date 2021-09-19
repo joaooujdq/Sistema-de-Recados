@@ -44,15 +44,19 @@ interface iself {
 }
 
 const FuncBody: React.FC = () => {
-    const [Msg, setMsg] = useState<imensagem[]>([]);
+    const [Func, setFunc] = useState<ifuncionario[]>([]);
+    const [Limit, setLimit] = useState<ifuncionario[]>([]);
     const [page, setPage]= useState(0);
 
 
     async function loadMsg() {
-        const response = api.get('/v1/elx/recados/',{params:{page:page,limit:3}});
-        setMsg((await response).data._embedded.recadoDTOList);
+        const response = api.get('/v1/elx/funcionarios/',{params:{page:page,limit:3}});
+        const limit = api.get('/v1/elx/funcionarios/');
+        
+        setFunc((await response).data._embedded.funcionarioDTOList);
+        setLimit((await limit).data._embedded.funcionarioDTOList);
 
-     
+      
     }
 
     useEffect(()=>{
@@ -71,12 +75,13 @@ const FuncBody: React.FC = () => {
                 
                 <thead>
                     {
-                        Msg.map(m => (
+                        Func.map(m => (
+                            
                             <ul id='funcBody'>
-                                <li>{m.funcionario.codigo_func}</li>
-                                <li>{m.funcionario.nome_func}</li>
-                                <li>{m.funcionario.cargo_func}</li>
-                                <li>{m.funcionario.tipo_func}</li>
+                                <li>{m.codigo_func}</li>
+                                <li>{m.nome_func}</li>
+                                <li>{m.cargo_func}</li>
+                                <li>{m.tipo_func}</li>
                                 <li id='deleteButton'>Excluir</li>
                             </ul>
                         ))
@@ -88,8 +93,9 @@ const FuncBody: React.FC = () => {
                </body>
 
                <div id='carouselBar'>
+                
                     <FiArrowLeft id='carouselIcon' onClick = { () => {if( page - 1 >= 0)setPage(page-1)   }  }/>
-                    <FiArrowRight id='carouselIcon' onClick = {() => {if(Msg.length == 3)setPage(page+1)   }  }/>
+                    <FiArrowRight id='carouselIcon' onClick = {() =>{if(Func.length == 3 && page + 1 < Limit.length/3){setPage(page+1)}}} />
 
                 </div>
 
