@@ -44,20 +44,24 @@ interface iself {
 }
 
 const EmpBody: React.FC = () => {
-    const [Msg, setMsg] = useState<imensagem[]>([]);
+    const [Emp, setEmp] = useState<iempresa[]>([]);
+    const [Limit, setLimit] = useState<iempresa[]>([]);
     const [page, setPage]= useState(0);
 
 
     async function loadMsg() {
-        const response = api.get('/v1/elx/recados/',{params:{page:page,limit:3}});
-        setMsg((await response).data._embedded.recadoDTOList);
+        const response = api.get('/v1/elx/Empresas/',{params:{page:page,limit:3}});
+        const limit = api.get('/v1/elx/Empresas/');
+        
+        setEmp((await response).data._embedded.empresaDTOList);
+        setLimit((await limit).data._embedded.empresaDTOList);
 
      
     }
 
     useEffect(()=>{
         loadMsg()
-    },[page]);
+    },[ page]);
 
 
 
@@ -71,14 +75,14 @@ const EmpBody: React.FC = () => {
                 
                 <thead>
                     {
-                        Msg.map(m => (
+                        Emp.map(m => (
                             <ul id='empBody'>
-                                <li>{m.empresa.codigo_emp}</li>
-                                <li>{m.empresa.nome_emp}</li>
-                                <li>{m.empresa.endereco_emp}</li>
-                                <li>{m.empresa.telefone_emp}</li>
-                                <li>{m.empresa.razao_emp}</li>
-                                <li >{m.empresa.cnpj_emp}</li>
+                                <li>{m.codigo_emp}</li>
+                                <li>{m.nome_emp}</li>
+                                <li>{m.razao_emp}</li>
+                                <li>{m.cnpj_emp}</li>
+                                <li>{m.endereco_emp}</li>
+                                <li >{m.telefone_emp}</li>
                                 <li id='deleteButton'>Excluir</li>
                             </ul>
                         ))
@@ -91,7 +95,7 @@ const EmpBody: React.FC = () => {
 
                <div id='carouselBar'>
                     <FiArrowLeft id='carouselIcon' onClick = { () => {if( page - 1 >= 0)setPage(page-1)   }  }/>
-                    <FiArrowRight id='carouselIcon' onClick = {() => {if(Msg.length == 3)setPage(page+1)   }  }/>
+                    <FiArrowRight id='carouselIcon' onClick = {() =>{if(Emp.length == 3 && page + 1 < Limit.length/3){setPage(page+1)}}}/>
 
                 </div>
 

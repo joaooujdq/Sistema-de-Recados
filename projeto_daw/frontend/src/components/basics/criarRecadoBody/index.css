@@ -7,7 +7,7 @@
     align-items: center;
     width: 100vw;
     padding-top: 25vh;
-    height: 70vh;
+    height: 90vh;
 
     padding: 0 ;
     margin: 0;
@@ -20,14 +20,16 @@
 #CriarRecadoBody #CriarRecadoUl{
     display: flex;
     flex-direction: row;
-    padding-top: 25vh;
+    padding-top: 20vh;
     justify-content: center;
     width: 100vw;
+    height: 70vh;
      
  }
 
 
  #CriarRecadoBody #CriarRecadoUl #divH1 {
+     padding-top: 20vh;
     display: flex;
     flex-direction: column;
     height: 4vh;
@@ -40,6 +42,7 @@
 }
 
 #CriarRecadoBody #CriarRecadoUl #divInput{
+    padding-top: 20vh;
     
     display: flex;
     flex-direction: column;
@@ -57,7 +60,7 @@
 }
 
 #CriarRecadoBody #CriarRecadoUl #divInput input{
-    padding: 0 0 3vh 0;
+    padding: 0 0 2.9vh 0;
     font-size: 2vh;
     margin-bottom: 3vh;
     padding-left: 5px;
@@ -66,7 +69,7 @@
     border-radius: 8px;
     border: 2px solid rgba(0, 0, 0, 0.16);
     box-shadow: 2px rgba(0, 0, 0, 0.11);
-    height: 3vh;
+    height: 2.9vh;
     text-align: justify;
     text-justify: inherit;
     text-orientation: sideways;
@@ -78,7 +81,7 @@
 #CriarRecadoBody #CriarRecadoUl #divH1 h1{
     padding: 0 0 3.5vh 0;
     margin-top: 2vh;
-    height: 4vh;
+    height: 3.8vh;
     font-size: 1.8vh;
     
 }
@@ -86,7 +89,6 @@
 #CriarRecadoBody button{
     border-radius: 8px;
     padding: 0;
-    margin-top: 22vh;
     width: 8vw;
     height: 4vh;
 
