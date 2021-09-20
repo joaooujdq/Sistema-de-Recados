@@ -83,13 +83,11 @@ const CriarRecadoBody: React.FC = () => {
 
         });
 
-
+        window.location.reload();
 
     }
 
-    useEffect(() => {
-        postMsg()
-    }, []);
+  
 
 
 

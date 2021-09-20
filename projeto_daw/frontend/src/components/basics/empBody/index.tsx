@@ -46,6 +46,7 @@ interface iself {
 const EmpBody: React.FC = () => {
     const [Emp, setEmp] = useState<iempresa[]>([]);
     const [Limit, setLimit] = useState<iempresa[]>([]);
+    const [deleteCodigo, setDeleteCodigo]= useState('');
     const [page, setPage]= useState(0);
 
 
@@ -59,9 +60,17 @@ const EmpBody: React.FC = () => {
      
     }
 
+    async function  deleteMsg(codigo: string) {
+        setDeleteCodigo(codigo);
+        
+        const responseDelete = api.delete('/v1/elx/Empresas/' + deleteCodigo);
+        loadMsg()
+        
+    }
+
     useEffect(()=>{
         loadMsg()
-    },[ page]);
+    },[ page, deleteCodigo]);
 
 
 
@@ -83,7 +92,7 @@ const EmpBody: React.FC = () => {
                                 <li>{m.cnpj_emp}</li>
                                 <li>{m.endereco_emp}</li>
                                 <li >{m.telefone_emp}</li>
-                                <li id='deleteButton'>Excluir</li>
+                                <li id='deleteButton'  onClick={() => { deleteMsg(m.codigo_emp.toString())  }}>Excluir</li>
                             </ul>
                         ))
 

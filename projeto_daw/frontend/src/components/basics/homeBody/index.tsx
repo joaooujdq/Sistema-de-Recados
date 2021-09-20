@@ -1,7 +1,8 @@
 
-import {  useEffect, useState } from "react";
+import {  SetStateAction, useEffect, useState } from "react";
 import api from "../../../services/api";
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
+import { FiSearch } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import './index.css'
 
@@ -50,6 +51,7 @@ const HomeBody: React.FC = () => {
     const [Msg, setMsg] = useState<imensagem[]>([]);
     const [Limit, setLimit] = useState<imensagem[]>([]);
     const [deleteCodigo, setDeleteCodigo]= useState('');
+    const [searchBar, setSearchBar]= useState('');
     const [page, setPage]= useState(0);
 
 
@@ -60,32 +62,41 @@ const HomeBody: React.FC = () => {
          
             setMsg((await response).data._embedded.recadoDTOList);
             setLimit((await limit).data._embedded.recadoDTOList);
+            
 
     }
 
-    async function  deleteMsg() {
+    async function  deleteMsg(codigo: string) {
+        setDeleteCodigo(codigo);
         
-        const response = api.delete('/v1/elx/recados/' + deleteCodigo);
+        const responseDelete = api.delete('/v1/elx/recados/' + deleteCodigo);
+        loadMsg()
+        
     }
 
+    async function  searchMsg() {
+       
+        
+        const responseSearch = api.delete('/v1/elx/funcionarios/nome/' + searchBar);
+        setMsg((await responseSearch).data);
+    }
 
     useEffect(()=>{
         loadMsg()
-    },[page, deleteCodigo]);
+        
+    },[page]);
 
-    useEffect(()=>{
-        loadMsg()
-    },[]);
-
+  
 
 
     return (
 
         <>
-          <div id='filter'>
+         {/*  <div id='filter'>
                 <h2>Procurar por funcionário: </h2>
-                <input id ='filterInput' type="text" />
-                </div>
+                <input type="text" value={searchBar} onChange={e => setSearchBar(e.target.value)} />
+                <FiSearch id='carouselIcon' onClick = { () => {searchMsg()}}/>
+                </div> */}
           <body>
               
           
@@ -101,12 +112,12 @@ const HomeBody: React.FC = () => {
                                 <li>{m.setor_rec}</li>
                                 <li>{m.prioridade_rec}</li>
                                 <li id='msgRecado'>{m.mensagem_rec}</li>
-                                <Link id='linkButton' to='/'>
+                              
                                 <li id='deleteButton' onClick={() =>{
-                                    setDeleteCodigo(m.codigo_rec.toString());
-                                    deleteMsg()
+                                    
+                                    deleteMsg(m.codigo_rec.toString())
                                 }}> Excluir</li>
-                                </Link>
+                          
                             </ul>
                         ))
 

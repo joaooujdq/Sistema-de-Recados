@@ -69,13 +69,11 @@ const CriarEmpresaBody: React.FC = () => {
   
 
 
-
+            window.location.reload();
 
     }
 
-    useEffect(() => {
-        postMsg()
-    }, []);
+
 
 
     return (

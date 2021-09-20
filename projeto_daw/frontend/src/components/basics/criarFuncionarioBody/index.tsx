@@ -67,11 +67,10 @@ const CriarFuncionarioBody: React.FC = () => {
             .catch(error => {
                 console.log(error.response)
             });
+            window.location.reload();
     }
 
-    useEffect(() => {
-        postMsg()
-    }, []);
+
 
 
 
