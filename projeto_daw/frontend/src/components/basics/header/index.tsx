@@ -17,13 +17,13 @@ const Header = () => {
     <button>Funcionários Cadastrados</button>
     </Link>
     <Link to='/criarfuncionario'>
-    <button>Criar Funcionário</button>
+    <button>Adicionar Funcionário</button>
     </Link>
     <Link to='/empresas'>
     <button>Empresas Cadastradas</button>
     </Link>
     <Link to='/criarempresa'>
-    <button>Criar Empresa</button>
+    <button>Adicionar Empresa</button>
     </Link>
   </div>
      </header>

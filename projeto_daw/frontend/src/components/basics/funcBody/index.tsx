@@ -46,6 +46,7 @@ interface iself {
 const FuncBody: React.FC = () => {
     const [Func, setFunc] = useState<ifuncionario[]>([]);
     const [Limit, setLimit] = useState<ifuncionario[]>([]);
+    const [deleteCodigo, setDeleteCodigo]= useState('');
     const [page, setPage]= useState(0);
 
 
@@ -57,6 +58,14 @@ const FuncBody: React.FC = () => {
         setLimit((await limit).data._embedded.funcionarioDTOList);
 
       
+    }
+
+    async function  deleteMsg(codigo: string) {
+        setDeleteCodigo(codigo);
+        
+        const responseDelete = api.delete('/v1/elx/funcionarios/' + deleteCodigo);
+        loadMsg()
+        
     }
 
     useEffect(()=>{
@@ -82,7 +91,10 @@ const FuncBody: React.FC = () => {
                                 <li>{m.nome_func}</li>
                                 <li>{m.cargo_func}</li>
                                 <li>{m.tipo_func}</li>
-                                <li id='deleteButton'>Excluir</li>
+                                <li id='deleteButton' onClick={() =>{
+                                    
+                                    deleteMsg(m.codigo_func.toString())
+                                }}>Excluir</li>
                             </ul>
                         ))
 
